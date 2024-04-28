@@ -112,6 +112,10 @@ impl eframe::App for MyApp {
                 .default_width(150.0)
                 .show_inside(ui, |ui| {
                     if ui.button("Calculate").clicked() {
+                        if self.cards.is_empty() {
+                            return;
+                        }
+
                         let start = Instant::now();
 
                         let cards = self.cards.clone();
